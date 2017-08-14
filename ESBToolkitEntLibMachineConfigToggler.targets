@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<!--
+  BizTalk ESB Toolkit Enterprise Library machine.config Toggler
+  Copyright (C) 2013-Present Thomas F. Abraham. All Rights Reserved.
+  Licensed under the MIT License. See License.txt in the project root.
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Main" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <ZipFile>ESBToolkitEntLibMachineConfigToggler_v$(Version).zip</ZipFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Binaries Include="License.txt" />
+    <Binaries Include=".\src\Console\bin\release\ESBToolkitEntLibMachineConfigToggler.exe" />
+    <Binaries Include=".\src\UI\bin\release\ESBToolkitEntLibMachineConfigTogglerUI.exe" />
+    <Binaries Include=".\src\Common\bin\release\ESBToolkitEntLibMachineConfigToggler.Common.dll" />
+  </ItemGroup>
+
+  <Target Name="Main" DependsOnTargets="BuildSolution;PackageBinaries"/>
+  
+  <Target Name="BuildSolution">
+    <MSBuild Projects="src\ESBToolkitEntLibMachineConfigToggler.sln" Properties="Configuration=Release" Targets="Rebuild" />
+  </Target>
+
+  <Target Name="PackageBinaries">
+    <Delete Files="Staging\$(ZipFile)" />
+    <Exec Command="tools\7za a -r -tzip Staging\$(ZipFile) @(Binaries)" Condition="%(Identity) == %(Identity)" />
+  </Target>
+</Project>
