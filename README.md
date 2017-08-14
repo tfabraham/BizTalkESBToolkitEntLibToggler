@@ -1,4 +1,4 @@
-# ESBToolkitEntLibMachineConfigToggler
+# BizTalk ESB Toolkit Enterprise Library machine.config Toggler
 This tool provides an instant on/off switch for the enterpriseLibrary.ConfigurationSource changes that the BizTalk ESB Toolkit makes to machine.config.
 
 The BizTalk ESB Toolkit adds an enterpriseLibrary.ConfigurationSource element to all machine.config's that redirects the global Enterprise Library configuration to esb.config or SSO. This is extremely inconvenient when you switch back and forth between development of BizTalk apps and other .NET apps that use Enterprise Library.
