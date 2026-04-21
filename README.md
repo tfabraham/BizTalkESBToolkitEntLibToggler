@@ -1,3 +1,5 @@
+### With Microsoft BizTalk Server reaching end-of-life, this utility is no longer being maintained.
+
 # BizTalk ESB Toolkit Enterprise Library machine.config Toggler
 An on/off switch for the enterpriseLibrary.ConfigurationSource changes that the BizTalk ESB Toolkit makes to machine.config.
 
